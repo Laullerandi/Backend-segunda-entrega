@@ -1,0 +1,36 @@
+<main>
+  <div class="container">
+    <h1>LISTA DE PRODUCTOS</h1>
+  </div>
+  <div class="container">
+    <div class="card-container">
+      {{#each products}}
+        <div class="product-card">
+          <h3 class="product-category">{{this.category}}</h3>
+          <h2 class="product-card_title">{{this.title}}</h2>
+          <p class="product-card_description">{{this.description}}</p>
+          <p class="product-card_price">$ {{this.price}}</p>
+          <button>Agregar al carrito</button>
+        </div>
+      {{/each}}
+    </div>
+  </div>
+
+  <div class="pager">
+    <p>Pagina actual: {{page}}</p>
+    <div class="page-container">
+      {{#if hasPrevPage}}
+        <p>Pagina previa: {{prevPage}}</p>
+        <a href="/api/views/products?page={{prevPage}}"><button
+          >Anterior</button></a>
+      {{/if}}
+    </div>
+    <div class="page-container">
+      {{#if hasNextPage}}
+        <p>Pagina siguiente: {{nextPage}}</p>
+        <a href="/api/views/products?page={{nextPage}}"><button
+          >Siguiente</button></a>
+      {{/if}}
+    </div>
+  </div>
+</main>
